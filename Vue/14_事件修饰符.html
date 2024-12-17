@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件修饰符</title>
+    <!-- 安装Vue -->
+    <script src="/relyOn/vue.js"></script>
+    <style>
+        .divList {
+            height: 200px;
+            width: 300px;
+            background-color: aqua;
+            overflow: auto;
+        }
+
+        .item {
+            width: 300px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Vue容器 -->
+    <div id="app">
+        <!-- .prevent 阻止事件默认行为 -->
+        <a href="hhttps://www.baidu.com" @click.prevent="yi">百度</a>
+        <div @click="san()">
+            <!-- .stop 停止冒泡模式 -->
+            <div @click.stop="er()">
+                <button @click="yi()">按钮</button>
+            </div>
+        </div>
+        <!-- 验证self once passive -->
+        <div @click.self="si">
+            <div @click.once="san">
+                <div @click.passive="er">
+                    <br><br>
+                    <button @click="yi">按钮</button>
+                </div>
+            </div>
+        </div>
+        <!-- passive 的应用 -->
+        <div class="divList" @wheel.passive="wheelRun()">
+            <div class="item">div1</div>
+            <div class="item">div2</div>
+            <div class="item">div3</div>
+        </div>
+
+    </div>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 0
+            },
+            methods: {
+                yi() {
+                    alert(1);
+                },
+                er() {
+                    alert(2);
+                },
+                san() {
+                    alert(3);
+                },
+                si() {
+                    alert(4);
+                },
+                wheelRun(){
+                    for(var i=0;i<1000000;i++){
+                        console.log("滚!!!");
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

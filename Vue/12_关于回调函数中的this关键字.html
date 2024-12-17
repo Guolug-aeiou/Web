@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于回调用函数中的this关键字</title>
+    <!-- 安装vue -->
+    <script src="/relyOn/myvue.js"></script>
+</head>
+
+<body>
+    <!-- 容器 -->
+    <div id="app">
+        <h1>计数器: {{count}}</h1>
+        <button @click="count++">不使用this进行计数加</button><br>
+        <button @click="add()">使用this进行计数加</button>
+    </div>
+    <script>
+        // 创建Vue
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                count: 0,
+                msg: 'abc'
+            },
+            methods: {
+                // vue的回调函数
+                add() {
+                    this.count++;
+                },
+                sayHello: function () {
+                    console.log('sayhello Vue!!!');
+                },
+
+            }
+        });
+    </script>
+</body>
+
+</html>

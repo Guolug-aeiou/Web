@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,20 +8,42 @@
     <!-- 安装Vue -->
     <script src="/relyOn/vue.js"></script>
 </head>
+
 <body>
     <!-- 容器 -->
     <div id="app">
         <h1>{{msg}}</h1>
+        <!-- 原生html绑定事件 -->
+        <button onclick="alert('hell1o')">原生事件绑定</button><br>
+        <!-- 使用用Vue框架进行事件绑定 -->
+        <button v-on:click="sayHello()">按钮Vue</button><br>
+        <!-- 简写 -->
+        <button @click="sayHello()">按钮Vue测试简写</button><br>
+        <!-- 接收参数 -->
+        <button @click="sayHello(1,$event)">接收参数和$event的使用</button><br>
     </div>
-    <!-- 原生html绑定事件 -->
-     <button onclick="alert('hello')">原生事件绑定</button>
+
     <script>
         const vm = new Vue({
-        el : '#app',
-        data : {
-        msg : '绑定事件'
-        }
+            el: '#app',
+            data: {
+                msg: '111'
+            },
+            /*
+             methods: {
+                 sayHello: function () {
+                     alert('hello');
+                 }
+             }
+            */
+            //简写
+            methods : {sayHello(e,a){
+                console.log(e);
+                console.log(a);
+                // alert('Hello Vue!');
+            }}
         });
     </script>
 </body>
+
 </html>
