@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模块语句的数据来源</title>
+    <script src="/relyOn/vue.js"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script>
+        new Vue({
+            template: '<h1>国漫巅峰是{{name}},男主角:{{male}},女主角{{female}},女二:{{rests.female}},男二:{{rests.male}}</h1>',
+            data: {
+                name: '灵笼',
+                male: '马克队长',
+                female: '冉冰副官',
+                rests: {
+                    female: '白月魁',
+                    male: '白敬宇'
+                }
+            }
+        }).$mount('#app');
+    </script>
+</body>
+
+</html>

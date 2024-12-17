@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>template配置项详解</title>
+    <script src="/relyOn/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{name}}</h1>
+        <h1>{{age}}</h1>
+    </div>
+    <script>
+        /*
+            关于 templat 配置项:
+                1.template 后面指定的是模板语句,但是末班语句中只能有一个根节点.
+                2.只要 data 中的数据发生变化,模板语句一定会重新编译,只要 data 变,template 就会重新编译,重新渲染.
+                3.如果使用 template 配置项的话,指定挂载位置的元素会被替换.
+                4.可以选择不使用 template 配置项,模板语句直接写在 HTML 标签中,Vue 框架能够找到并编译,然后渲染.
+                5.如果直接将模板语句编写到 HTML 标签中,指定的挂载位置就不会被替换.
+            关于 $mount('#app'):
+                1.可以不使用 $mount() 进行挂载了.
+                2.在Vue中有一个挂载配置项: el.
+                3.el 配置项和 $mount() 功能一样 
+            Vue实例和容器是 1 对 1 关系,不存在 1 个容器被多个 Vue 实例挂载或 1 个 Vue 实例挂载多个容器
+        */
+        new Vue({
+            data: {
+                age: '35',
+                name: '张三'
+
+            },
+            el: '#app'
+        })
+    </script>
+</body>
+
+</html>

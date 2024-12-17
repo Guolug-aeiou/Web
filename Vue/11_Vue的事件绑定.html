@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11_Vue事件绑定</title>
+    <!-- 安装Vue -->
+    <script src="/relyOn/vue.js"></script>
+</head>
+<body>
+    <!-- 容器 -->
+    <div id="app">
+        <h1>{{msg}}</h1>
+    </div>
+    <!-- 原生html绑定事件 -->
+     <button></button>
+    <script>
+        const vm = new Vue({
+        el : '#app',
+        data : {
+        msg : '绑定事件'
+        }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据代理机制的实现</title>
+    <script src="/relyOn/vue.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+    <script>
+        const vm = new Vue({
+        el : '#app',
+        data : {
+            msg : 'hello wolrd',
+            name : 'hello'
+        }
+        });
+        // 目标对象
+        let target = {
+            name : 'zhangsan'
+        }
+        //代理对象
+        let proxy = {};
+        Object.defineProperty(proxy,'name',{
+            set(val){
+                target.name = val;
+            },
+            get(){
+                return target.name; 
+            }
+        })
+    </script>
+</body>
+</html>

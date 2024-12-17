@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-model的使用</title>
+    <script src="/relyOn/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        v-bind: <input type="text" :value="name1"><br>
+        v-model:<input type="text" v-model:value="name2"><br>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                name1: 'zhangshang',
+                name2: 'wangwu'
+            }
+        });
+    </script>
+</body>
+
+</html>
