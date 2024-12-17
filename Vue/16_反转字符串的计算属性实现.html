@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>16_反转字符串的计算属性实现</title>
+    <script src="/relyOn/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        原字符串 : <input type="text" v-model="info"><br>
+        <h1>反转后 : {{infoTion}}</h1><br>
+    </div>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                msg: '0123456',
+                info: ''
+            },
+            computed: {
+                // 完整写法
+                // infoTion : {
+                //     get(){
+                //         return this.info.split('').reverse().join('');
+                //     },
+                //     set(val){
+                //         this.info = val.split('').reverse().join('');
+                //     }
+                // }
+                // 简写 set方法不需要使用的时候
+                infoTion() {
+                    return this.info.split('').reverse().join('');
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
