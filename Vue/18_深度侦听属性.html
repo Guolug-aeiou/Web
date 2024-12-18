@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>深度侦听属性</title>
+    <script src="/relyOn/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="a.b"><br>
+        <input type="text" v-model="a.c"><br>
+    </div>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                msg: '深度侦听属性',
+                a: {
+                    b: 'b',
+                    c: 'c'
+                }
+            },
+            watch: {
+                //     'a.b': {
+                //         handler(newValue, oldValue) {
+                //             console.log('a.c 发生了更改:' + oldValue + '->' + newValue);
+                //         }
+                //     },
+                //     'a.c': {
+                //         handler(newValue, oldValue) {
+                //             console.log('a.c 发生了更改:' + oldValue + '->' + newValue);
+                //         }
+                //     },
+                a: {
+                    // 启动深度监视
+                    deep: true,
+                    handler(newValue, oldValue) {
+                        console.log(oldValue + '->' + newValue);
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

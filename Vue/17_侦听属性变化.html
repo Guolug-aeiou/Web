@@ -20,8 +20,23 @@
                 msg: '侦听属性的变化',
                 number: 0
             },
+            compute: {
+                // 计算属性
+                hehe() {
+                    return this.number;
+                }
+            },
             watch: {
-
+                // 可以监视多个属性
+                // 可以监视原有属性
+                // 也可以监视计算属性
+                number: {
+                    immediate: true,
+                    handler(newValue, oldValue) {
+                        // console.log('数字发生了变化:'+ oldValue+' -> '+newValue);
+                        console.log(`数字发生了变化: ${oldValue} -> ${newValue}`);
+                    }
+                }
             }
         });
     </script>
